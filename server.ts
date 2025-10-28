@@ -1,11 +1,9 @@
-import { Hono } from "hono"
-
-const app = new Hono()
+import { Elysia } from 'elysia'
 
 const runtime = process.versions.bun ? `Bun@${process.versions.bun}` : `Node@${process.versions.node}`
 
-app.get("/", (c) => {
-  return c.text(`Nitro + Hono Works! (Runtime: ${runtime})`)
-})
+const app = new Elysia()
+
+app.get('/', () => `Nitro + Elysia Works! (Runtime: ${runtime})`)
 
 export default app
